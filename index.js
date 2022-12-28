@@ -9,6 +9,7 @@ import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth";
+import userRoutes from "./routes/users";
 import { register } from "./controllers/auth";
 import { verifyToken } from "./middleware/auth";
 
@@ -45,6 +46,8 @@ app.post("/auth/register", upload.single("picture"), register);
 
 /* Routes */
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
+
 
 /* MONGOOSE Setup */
 const PORT = process.env.PORT || 6001;
